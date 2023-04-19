@@ -20,6 +20,9 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV.fetch("POSTGRES_HOST") { "localhost" } %>
+  username: <%= ENV.fetch("POSTGRES_USERNAME") { "postgres" } %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") { "postgres" } %>
 
 development:
   <<: *default
@@ -81,6 +84,4 @@ test:
 #
 production:
   <<: *default
-  database: my_chat_gpt_production
-  username: my_chat_gpt
-  password: <%= ENV["MY_CHAT_GPT_DATABASE_PASSWORD"] %>
+  password: <%= ENV["DATABASE_URL"] %>
