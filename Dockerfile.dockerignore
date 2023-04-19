@@ -1,0 +1,14 @@
+.circleci
+.editorconfig
+.env*
+.git
+.github
+.vscode
+dockerdev
+log
+public/assets
+spec
+storage
+test
+tmp
+vendor
